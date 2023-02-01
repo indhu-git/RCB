@@ -24,8 +24,8 @@ public class Reporter {
     }
 
     @BeforeMethod
-    public void createTest(ITestContext iTestContext){
-        className = iTestContext.getSuite().getAllMethods().get(0).getQualifiedName();
+    public void createTest(ITestResult result){
+        className = result.getMethod().getQualifiedName();
         test = extent.createTest(className);
     }
 

@@ -29,7 +29,8 @@ public class Scenario2 extends Reporter {
             Assert.assertTrue(wicketkeeperPlayersCount > 0);
             test.log(Status.PASS, "Team have at least one Wicket-keeper");
         } catch (Throwable t){
-            test.log(Status.FAIL,"Team does not have Wicket-keeper \n"+t.fillInStackTrace());
+            test.log(Status.FAIL,"Team does not have Wicket-keeper "+t.fillInStackTrace());
+            throw new RuntimeException(t.getMessage());
         }
     }
 }

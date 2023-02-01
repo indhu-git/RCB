@@ -26,7 +26,8 @@ public class Scenario1 extends Reporter {
             Assert.assertEquals(foreignPlayersCount, 4);
             test.log(Status.PASS, "Team has only 4 players");
         } catch (Throwable t){
-            test.log(Status.FAIL, "Team has '"+foreignPlayersCount+"' foreign players, which is not expected "+t.fillInStackTrace());
+            test.log(Status.FAIL, "Team should have at least '"+foreignPlayersCount+"' foreign players, which is not expected "+t.fillInStackTrace());
+            throw new RuntimeException(t.getMessage());
         }
     }
 
