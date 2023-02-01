@@ -5,6 +5,7 @@ import com.cricket.team.models.Player;
 import com.cricket.team.models.Team;
 import com.cricket.team.utils.Global;
 import com.cricket.team.utils.Reporter;
+import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -21,10 +22,11 @@ public class Scenario1 extends Reporter {
                 foreignPlayersCount++;
             }
         }
-        if(foreignPlayersCount==4){
+        try {
+            Assert.assertEquals(foreignPlayersCount, 4);
             test.log(Status.PASS, "Team has only 4 players");
-        }else {
-            test.log(Status.FAIL, "Team has '"+foreignPlayersCount+"' foreign players, which is not expected");
+        } catch (Throwable t){
+            test.log(Status.FAIL, "Team has '"+foreignPlayersCount+"' foreign players, which is not expected "+t.fillInStackTrace());
         }
     }
 

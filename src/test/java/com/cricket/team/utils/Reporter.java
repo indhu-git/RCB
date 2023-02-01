@@ -12,7 +12,7 @@ public class Reporter {
 
     public static ExtentReports extent = new ExtentReports();
     public ExtentTest test;
-    public static String className = "";
+    public String className = "";
     protected JsonReader jsonReader = new JsonReader();
 
     @BeforeSuite

@@ -6,6 +6,7 @@ import com.cricket.team.models.Team;
 import com.cricket.team.utils.Global;
 import com.cricket.team.utils.JsonReader;
 import com.cricket.team.utils.Reporter;
+import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -24,10 +25,11 @@ public class Scenario2 extends Reporter {
                 break;
             }
         }
-        if(wicketkeeperPlayersCount>0) {
+        try {
+            Assert.assertTrue(wicketkeeperPlayersCount > 0);
             test.log(Status.PASS, "Team have at least one Wicket-keeper");
-        }else {
-            test.log(Status.FAIL,"Team does not have Wicket-keeper");
+        } catch (Throwable t){
+            test.log(Status.FAIL,"Team does not have Wicket-keeper \n"+t.fillInStackTrace());
         }
     }
 }

@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="NegativeInput" verbose="1" >
+    <test name="Verify negative values"   >
+        <parameter name="inputFilename" value="NegativeInput"></parameter>
+        <packages>
+            <package name="com.cricket.team.tests.*" />
+        </packages>
+    </test>
+</suite>
